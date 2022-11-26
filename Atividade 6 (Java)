@@ -1,0 +1,213 @@
+package uscs;
+public class Aluno extends Pessoa {
+//Atributos Instância
+private String codMatricula;
+private double notaP1;
+private double notaP2;
+private int totalFaltas;
+//Atributos de Classe
+private static int limiteFaltas = 10;
+private static double mediaAprovacao = 7.0;
+private static double mediaReprovacao = 3.0;
+//Getters e Setters
+public String getCodMatricula() {
+return codMatricula;
+}
+public void setCodMatricula(String codMatricula) {
+this.codMatricula = codMatricula;
+}
+public double getNotaP1() {
+return notaP1;
+}
+public void setNotaP1(double notaP1) {
+this.notaP1 = notaP1;
+}
+public double getNotaP2() {
+return notaP2;
+}
+public void setNotaP2(double notaP2) {
+this.notaP2 = notaP2;
+}
+public int getTotalFaltas() {
+return totalFaltas;
+}
+public void setTotalFaltas(int totalFaltas) {
+this.totalFaltas = totalFaltas;
+}
+public static int getLimiteFaltas() {
+return limiteFaltas;
+
+}
+public static void setLimiteFaltas(int limiteFaltas) {
+Aluno.limiteFaltas = limiteFaltas;
+}
+public static double getMediaAprovacao() {
+return mediaAprovacao;
+}
+public static void setMediaAprovacao(double mediaAprovacao) {
+Aluno.mediaAprovacao = mediaAprovacao;
+}
+public static double getMediaReprovacao() {
+return mediaReprovacao;
+}
+public static void setMediaReprovacao(double mediaReprovacao) {
+Aluno.mediaReprovacao = mediaReprovacao;
+}
+//Construtores
+public Aluno() {
+}
+public Aluno(
+
+String nome,
+String endereco,
+String cpf,
+String rg,
+String codMatricula,
+double notaP1,
+double notaP2,
+int totalFaltas) {
+super(nome, endereco, cpf, rg); //chamada do construtor pai
+this.codMatricula = codMatricula;
+this.notaP1 = notaP1;
+this.notaP2 = notaP2;
+this.totalFaltas = totalFaltas;
+}
+public Aluno (Aluno a) {
+super(a.getNome(), a.getEndereco(), a.getCpf(), a.getRg());
+this.codMatricula = a.codMatricula;
+this.notaP1 = a.notaP1;
+this.notaP2 = a.notaP2;
+this.totalFaltas = a.totalFaltas;
+
+}
+public void imprimeAluno() {
+super.imprimePessoa();
+System.out.println("Código Matrícula: " + this.codMatricula);
+System.out.println("Nota P1: " + this.notaP1);
+System.out.println("Nota P2: " + this.notaP2);
+System.out.println("Total de Faltas: " + this.totalFaltas);
+}
+public void imprimeTotalFaltas() {
+
+System.out.println("Total de Faltas do aluno: " +
+this.totalFaltas);
+}
+public double media() {
+return( this.notaP1 + this.notaP2)/2.0;
+}
+public void Resultado() {
+if (this.totalFaltas > Aluno.limiteFaltas)
+System.out.println("Reprovado por Falta...");
+else {
+if (this.media() >= Aluno.mediaAprovacao)
+System.out.println("Aprovado...");
+else {
+if(this.media() < Aluno.mediaReprovacao)
+System.out.println("Reprovado por nota");
+else
+System.out.println("Exame....");
+
+}
+}
+}
+}
+//----------------------------------------------------
+
+package uscs;
+public class Pessoa {
+private String nome;
+private String endereco;
+private String cpf;
+private String rg;
+public Pessoa() {
+}
+
+public Pessoa( String nome,
+
+String endereco,
+String cpf,
+String rg) {
+
+this.nome = nome;
+this.endereco = endereco;
+this.cpf = cpf;
+this.rg = rg;
+}
+public Pessoa(Pessoa p) {
+this.nome = p.nome;
+this.endereco = p.endereco;
+this.cpf = p.cpf;
+this.rg = p.rg;
+}
+public String getNome() {
+return nome;
+}
+public void setNome(String nome) {
+this.nome = nome;
+}
+public String getEndereco() {
+return endereco;
+}
+public void setEndereco(String endereco) {
+this.endereco = endereco;
+}
+public String getCpf() {
+return cpf;
+}
+public void setCpf(String cpf) {
+this.cpf = cpf;
+}
+public String getRg() {
+return rg;
+}
+public void setRg(String rg) {
+this.rg = rg;
+}
+public void imprimePessoa() {
+System.out.println("Nome: " + this.nome);
+System.out.println("Endereço: " + this.endereco);
+System.out.println("CPF: " + this.cpf);
+System.out.println("RG: " + this.rg);
+}
+}
+
+//----------------------------------------------------
+package uscs;
+public class TesteAluno {
+public static void main(String[] args) {
+Pessoa p1 = new Pessoa("José", "Rua Antonio Marques, 30",
+
+"568.234.981-15", "3.698.222-8");
+
+p1.imprimePessoa();
+System.out.println("--------------------------------");
+Aluno a1 = new Aluno (
+"Pedro",
+"Rua Almeida, 20",
+"456.876.123-12",
+"4.687.098-2",
+"59751",
+4.5,
+8.0,
+10);
+a1.imprimeAluno();
+a1.Resultado();
+Aluno a2 = new Aluno(a1); //Clonagem do Aluno
+a2.setNome("Francisco");
+a2.setNotaP1(9.0);
+a2.setNotaP2(9.5);
+System.out.println("------------------------------");
+a2.imprimeAluno();
+a2.Resultado();
+
+System.out.println("------------------------------");
+a2.setTotalFaltas(11);
+a2.imprimeAluno();
+a2.Resultado();
+System.out.println("------------------------------");
+a2.setNotaP1(10.0);
+a2.setNotaP2(10.0);
+a2.imprimeAluno();
+a2.Resultado();
+}
+}
