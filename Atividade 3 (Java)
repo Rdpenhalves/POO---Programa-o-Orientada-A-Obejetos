@@ -1,0 +1,114 @@
+package uscs;
+public class Empregado {
+
+private static int codWork=0;
+private int codEmpregado;
+private String nomeEmpregado;
+private String cargoEmpregado;
+private double salarioEmpregado;
+public static int contadorEmpregados = 0;
+//Construtor Default
+public Empregado() {
+Empregado.contadorEmpregados++;
+Empregado.codWork++;
+this.codEmpregado = codWork;
+}
+//Construtor com Parâmetros
+public Empregado(
+
+String nomeEmpregado,
+String cargoEmpregado,
+double salarioEmpregado) {
+this.nomeEmpregado = nomeEmpregado;
+this.cargoEmpregado = cargoEmpregado;
+this.salarioEmpregado = salarioEmpregado;
+Empregado.contadorEmpregados++; //atributo de classe
+Empregado.codWork++;
+this.codEmpregado = codWork;
+}
+//Getters and Setters
+public int getCodEmpregado() {
+return codEmpregado;
+}
+public String getNomeEmpregado() {
+return nomeEmpregado;
+}
+public void setNomeEmpregado(String nomeEmpregado) {
+this.nomeEmpregado = nomeEmpregado;
+}
+public String getCargoEmpregado() {
+return cargoEmpregado;
+}
+
+public void setCargoEmpregado(String cargoEmpregado) {
+this.cargoEmpregado = cargoEmpregado;
+}
+public double getSalarioEmpregado() {
+return salarioEmpregado;
+}
+public void setSalarioEmpregado(double salarioEmpregado) {
+this.salarioEmpregado = salarioEmpregado;
+}
+public static int getContadorEmpregados() {
+return contadorEmpregados;
+}
+public static void setContadorEmpregados(int contadorEmpregados)
+{
+
+Empregado.contadorEmpregados = contadorEmpregados;
+}
+public void imprimeEmpregado() {
+System.out.println("Código do Empregado: " +
+
+this.codEmpregado);
+
+System.out.println("Nome do Empregado: " +
+
+this.nomeEmpregado);
+
+System.out.println("Cargo do Empregado: " +
+
+this.cargoEmpregado);
+
+System.out.println("Salário do Empregado: " +
+
+this.salarioEmpregado);
+}
+public static void TotalEmpregados() {
+System.out.println("Total de Empregados criados = " +
+
+Empregado.contadorEmpregados);
+}
+}
+
+package uscs;
+public class TesteEmpregado {
+public static void main(String[] args) {
+System.out.println("--------------------------------");
+Empregado.TotalEmpregados();
+System.out.println("--------------------------------");
+Empregado e1 = new Empregado(
+
+"Paulo Silva", "Gerente Financeiro",
+
+15400.00);
+
+e1.imprimeEmpregado();
+System.out.println("-----------------------------");
+Empregado.TotalEmpregados();
+System.out.println("----------------------------");
+Empregado e2 = new Empregado();
+
+e2.setNomeEmpregado("Ana Paula");
+e2.setCargoEmpregado("Analista de Sistemas Senior");
+e2.setSalarioEmpregado(10700.00);
+e2.imprimeEmpregado();
+e2.imprimeEmpregado();
+System.out.println("-----------------------------");
+e1.imprimeEmpregado();
+e1.imprimeEmpregado();
+e1.imprimeEmpregado();
+Empregado.TotalEmpregados();
+System.out.println("------------------------------");
+}
+}
