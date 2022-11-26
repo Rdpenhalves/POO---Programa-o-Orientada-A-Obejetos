@@ -1,0 +1,244 @@
+package uscs;
+public class Teclado {
+private String Numero_Serie;
+private String Fabricante;
+private String Cor;
+public Teclado(String n , String f, String c) {
+this.Numero_Serie=n;
+this.Fabricante=f;
+this.Cor=c;
+}
+public Teclado() {
+this.Numero_Serie=null;
+this.Fabricante=null;
+this.Cor=null;
+}
+public void Imprime_Teclado() {
+System.out.println("---- Função Imprime_Teclado() ------");
+System.out.println("Numero de Série do Teclado: " +
+this.Numero_Serie);
+System.out.println("Fabricante do Teclado: " + this.Fabricante);
+System.out.println("Cor do Teclado: " + this.Cor);
+}
+public String getNumero_Serie() {
+return Numero_Serie;
+}
+public void setNumero_Serie(String numero_Serie) {
+Numero_Serie = numero_Serie;
+}
+public String getFabricante() {
+return Fabricante;
+}
+public void setFabricante(String fabricante) {
+Fabricante = fabricante;
+}
+public String getCor() {
+return Cor;
+}
+public void setCor(String cor) {
+Cor = cor;
+}
+}
+
+package uscs;
+public class Mouse {
+private String Numero_Serie;
+private String Fabricante;
+private String Cor;
+public Mouse(String n , String f, String c) {
+this.Numero_Serie=n;
+this.Fabricante=f;
+this.Cor=c;
+}
+public Mouse() {
+this.Numero_Serie=null;
+this.Fabricante=null;
+this.Cor=null;
+}
+public void Imprime_Mouse() {
+System.out.println("---- Função Imprime_Mouse() ------");
+System.out.println("Numero de Série do Mouse: " +
+
+this.Numero_Serie);
+
+System.out.println("Fabricante do Mouse: " + this.Fabricante);
+System.out.println("Cor do Mouse: " + this.Cor);
+}
+public String getNumero_Serie() {
+return Numero_Serie;
+}
+public void setNumero_Serie(String numero_Serie) {
+Numero_Serie = numero_Serie;
+}
+public String getFabricante() {
+return Fabricante;
+}
+public void setFabricante(String fabricante) {
+Fabricante = fabricante;
+}
+public String getCor() {
+return Cor;
+}
+public void setCor(String cor) {
+Cor = cor;
+}
+}
+
+package uscs;
+public class Monitor {
+private String Numero_Serie;
+private String Fabricante;
+private String Cor;
+public Monitor(String n, String f, String c) {
+this.Numero_Serie=n;
+this.Fabricante=f;
+this.Cor=c;
+}
+public Monitor() {
+this.Numero_Serie=null;
+this.Fabricante=null;
+this.Cor=null;
+}
+public void Imprime_Monitor() {
+System.out.println("---- Função Imprime_Monitor() ------");
+System.out.println("Numero de Série do Monitor: " + this.Numero_Serie);
+System.out.println("Fabricante do Monitor: " + this.Fabricante);
+System.out.println("Cor do Monitor: " + this.Cor);
+}
+public String getNumero_Serie() {
+return Numero_Serie;
+}
+public void setNumero_Serie(String numero_Serie) {
+Numero_Serie = numero_Serie;
+}
+public String getFabricante() {
+return Fabricante;
+}
+public void setFabricante(String fabricante) {
+Fabricante = fabricante;
+}
+public String getCor() {
+return Cor;
+}
+public void setCor(String cor) {
+Cor = cor;
+}
+}
+
+package uscs;
+public class Gabinete {
+private String Numero_Serie;
+private String Fabricante;
+private String Cor;
+public Gabinete(String n , String f, String c) {
+this.Numero_Serie=n;
+this.Fabricante=f;
+this.Cor=c;
+}
+public Gabinete() {
+this.Numero_Serie=null;
+this.Fabricante=null;
+this.Cor=null;
+}
+public void Imprime_Gabinete() {
+System.out.println("---- Função Imprime_Gabinete() ------");
+System.out.println("Numero de Série do Gabinete: " + this.Numero_Serie);
+System.out.println("Fabricante do Gabinete: " + this.Fabricante);
+System.out.println("Cor do Gabinete: " + this.Cor);
+}
+public String getNumero_Serie() {
+return Numero_Serie;
+}
+public void setNumero_Serie(String numero_Serie) {
+Numero_Serie = numero_Serie;
+}
+public String getFabricante() {
+return Fabricante;
+}
+public void setFabricante(String fabricante) {
+Fabricante = fabricante;
+}
+public String getCor() {
+return Cor;
+}
+public void setCor(String cor) {
+Cor = cor;
+}
+}
+
+package uscs;
+public class Computador {
+private String numero_Serie;
+private Mouse mouse;
+private Teclado teclado;
+private Gabinete gabinete;
+private Monitor monitor;
+public String getNumero_Serie() {
+return numero_Serie;
+}
+public void setNumero_Serie(String numero_Serie) {
+this.numero_Serie = numero_Serie;
+}
+public Mouse getMouse() {
+return mouse;
+}
+public void setMouse(Mouse mouse) {
+this.mouse = mouse;
+}
+public Teclado getTeclado() {
+return teclado;
+}
+public void setTeclado(Teclado teclado) {
+this.teclado = teclado;
+}
+public Gabinete getGabinete() {
+return gabinete;
+}
+public void setGabinete(Gabinete gabinete) {
+this.gabinete = gabinete;
+}
+public Monitor getMonitor() {
+return monitor;
+}
+public void setMonitor(Monitor monitor) {
+this.monitor = monitor;
+}
+
+public Computador(String numero_Serie, Mouse mouse, Teclado teclado,
+Gabinete gabinete, Monitor m) {
+this.numero_Serie = numero_Serie;
+this.mouse = mouse;
+this.teclado = teclado;
+this.gabinete = gabinete;
+this.monitor = m;
+}
+public Computador() {
+this.numero_Serie = null;
+this.mouse = null;
+this.teclado = null;
+this.gabinete = null;
+this.monitor = null;
+}
+public void Imprime_Computador () {
+System.out.println("------Função Imprime_Computador() -------");
+System.out.println("Numero de Serie do Computador: " +
+this.numero_Serie);
+this.gabinete.Imprime_Gabinete();
+this.monitor.Imprime_Monitor();
+this.teclado.Imprime_Teclado();
+this.mouse.Imprime_Mouse();
+}
+}
+
+package uscs;
+public class Teste_Computador {
+
+public static void main(String[] args) {
+Teclado t = new Teclado("1232", "Logitech", "preto");
+Monitor mon = new Monitor("AFB876", "Samsung", "preto");
+Gabinete g = new Gabinete("4587HHY","Logitech", "preto");
+Mouse m = new Mouse("HGY6654", "Microsoft", "preto");
+Computador cp = new Computador("76TRDE35", m, t, g, mon);
+cp.Imprime_Computador();
+}
+}
