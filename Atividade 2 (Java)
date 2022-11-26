@@ -1,0 +1,104 @@
+package uscs;
+public class Curso {
+int cod_curso;
+String desc_curso;
+int duracao_semestre;
+public Curso() {
+cod_curso = 0;
+desc_curso = null;
+duracao_semestre = 0;
+}
+public Curso(int c, String d, int du){
+cod_curso = c;
+desc_curso = d;
+duracao_semestre = du;
+}
+public void Imprime_Curso() {
+System.out.println("----- Funcao Imprime_Curso() -----") ;
+System.out.println("Codigo do curso: " + cod_curso);
+System.out.println("Descricao do curso: " + desc_curso);
+System.out.println("Duracao do curso em semestres: " + duracao_semestre);
+System.out.println("-----------------------------------\n");
+}
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+package uscs;
+public class Disciplina {
+int cod_disciplina;
+String desc_disciplina;
+public Disciplina() {
+cod_disciplina = 0;
+desc_disciplina = null;
+}
+
+public Disciplina(int c , String d) {
+cod_disciplina = c;
+desc_disciplina = d;
+}
+public void Imprime_Disciplina() {
+System.out.println("----- Funcao Imprime_Disciplina -----");
+System.out.println("Codigo da disciplina: " + cod_disciplina);
+System.out.println("Descricao da disciplina: " + desc_disciplina);
+System.out.println("-------------------------------------\n");
+}
+}
+/*-----------------------------------------------------------------------------------------------*/
+package uscs;
+public class Professor {
+int cod_prof;
+String nome_prof;
+String email_prof;
+String fone_prof;
+public Professor() {
+cod_prof = 0;
+nome_prof = null;
+email_prof = null;
+fone_prof = null;
+}
+public Professor(int c, String n, String e, String f) {
+cod_prof = c;
+nome_prof = n;
+email_prof = e;
+fone_prof = f;
+}
+public void Imprime_Professor() {
+System.out.println("---- Funcao Imprime_Professor() -----");
+System.out.println("Codido do Professor: " + cod_prof);
+System.out.println("Nome do Professor: " + nome_prof);
+System.out.println("Email do Professor: " + email_prof);
+System.out.println("Fone do Professor: " + fone_prof);
+System.out.println("-------------------------------------\n");
+}
+}
+
+package uscs;
+public class Teste_Escola {
+public static void main(String[] args) {
+Curso[] tab_curso = new Curso[5];
+tab_curso[0] = new Curso(1, "Ciência da Computação",8);
+tab_curso[1] = new Curso(2, "Sistemas de Informação",8);
+tab_curso[2] = new Curso(3, "Redes de Computadores", 5);
+tab_curso[3] = new Curso(4, "Sistemas para Internet", 5);
+tab_curso[4] = new Curso(5, "Gestão de TI ", 5);
+for (int i=0; i <tab_curso.length; i++) {
+tab_curso[i].Imprime_Curso();
+}
+Professor[] tab_prof = new Professor[4];
+tab_prof[0] = new Professor(10,"Paulo","pg@uol.com.br", "4330-4578");
+tab_prof[1] = new Professor(15,"Alfredo","am@uol.com.br", "5578-9812");
+tab_prof[2] = new Professor(20,"Marcos","ms@uol.com.br", "4125-9976");
+tab_prof[3] = new Professor(25,"Ana","an@bol.com.br", "5678-1145");
+for (int i=0; i <tab_prof.length; i++) {
+tab_prof[i].Imprime_Professor();
+}
+Disciplina[] tab_disciplina = new Disciplina[4];
+tab_disciplina[0] = new Disciplina(100, "Estatística");
+tab_disciplina[1] = new Disciplina(110, "Algoritmos");
+tab_disciplina[2] = new Disciplina(120, "Redes");
+tab_disciplina[3] = new Disciplina(130, "Álgebra");
+for (int i=0; i <tab_disciplina.length; i++) {
+tab_disciplina[i].Imprime_Disciplina();
+}
+}
+}
