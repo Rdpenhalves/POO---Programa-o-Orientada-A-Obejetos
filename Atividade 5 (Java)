@@ -1,0 +1,151 @@
+package uscs;
+public class Produto {
+private int cod_produto;
+private String desc_produto;
+private int qtde_produto;
+private static int limite_estoque=10;
+private static int Contador_produtos=0;
+public Produto(){
+cod_produto=0;
+desc_produto=null;
+qtde_produto=0;
+Produto.Contador_produtos++;
+}
+public Produto(int c, String d, int q){
+cod_produto=c;
+desc_produto=d;
+qtde_produto=q;
+Produto.Contador_produtos++;
+}
+
+public int getCod_produto() {
+return cod_produto;
+}
+public void setCod_produto(int cod_produto) {
+this.cod_produto = cod_produto;
+}
+public String getDesc_produto() {
+return desc_produto;
+}
+public void setDesc_produto(String desc_produto) {
+this.desc_produto = desc_produto;
+}
+public int getQtde_produto() {
+return qtde_produto;
+}
+public void setQtde_produto(int qtde_produto) {
+this.qtde_produto = qtde_produto;
+}
+
+public static int getLimite_estoque() {
+return limite_estoque;
+}
+public static void setLimite_estoque(int limite_estoque) {
+Produto.limite_estoque = limite_estoque;
+}
+public static int getContador_produtos() {
+return Contador_produtos;
+}
+public static void setContador_produtos(int contador_produtos) {
+Contador_produtos = contador_produtos;
+}
+public void Retira_Estoque(int qtde_retirada ) {
+System.out.println("---- Funcao Retira_Estoque() -------");
+if (qtde_retirada > this.qtde_produto)
+System.out.println("Estoque indisponível para a quantidade
+
+solicitada...\n ");
+else
+this.qtde_produto = this.qtde_produto - qtde_retirada;
+
+}
+public void Adiciona_Estoque(int qtde_acrescida){
+System.out.println("---- Funcao Adiciona_Estoque() -------");
+this.qtde_produto = this.qtde_produto + qtde_acrescida;
+
+}
+public void Imprime_Produto(){
+System.out.println("---- Funcao Imprime_Produto() -------");
+System.out.println("Código do Produto: " + this.cod_produto);
+System.out.println("Descrição do Produto: " + this.desc_produto);
+System.out.println("Quantidade em estoque: " +
+
+this.qtde_produto);
+}
+
+public void Status_Estoque() {
+
+System.out.println("---- Funcao Status_Estoque() -------");
+System.out.println ("Produto: " + this.desc_produto);
+if (this.qtde_produto == 0)
+System.out.println("Estoque nulo...");
+if (this.qtde_produto > Produto.limite_estoque)
+System.out.println("Estoque Regular...");
+else
+System.out.println(" Estoque restrito...");
+
+System.out.println("\n--------------------------------------");
+}
+public static void Imprime_Total_de_Produtos() {
+System.out.println("---- Funcao Imprime_Total_de_Produtos() -----
+
+--");
+
+System.out.println("Total de produtos criados: " +
+
+Produto.Contador_produtos);
+}
+public static void Altera_Limite(int novo_limite) {
+if (novo_limite <=0 )
+System.out.println("Valor de novo limite Inválido...");
+else
+Produto.limite_estoque=novo_limite;
+
+}
+}
+/*-----------------------------------------------------------------------------------------------------------------------------------*/
+package uscs;
+import java.util.Scanner;
+public class TesteProduto {
+
+public static void main(String[] args) {
+Produto p1 = new Produto(1232, "Celular Samsung SIII", 30);
+Produto p2 = new Produto();
+Produto.Imprime_Total_de_Produtos();
+p2.setCod_produto(3456);
+p2.setDesc_produto("Monitor Samsung SyncMaster");
+p2.setQtde_produto(12);
+p1.Retira_Estoque(5);
+p1.Imprime_Produto();
+p1.Status_Estoque();
+p2.Retira_Estoque(8);
+p2.Imprime_Produto();
+p2.Status_Estoque();
+p1.Retira_Estoque(10);
+p1.Imprime_Produto();
+p1.Status_Estoque();
+
+p2.Retira_Estoque(12);
+p2.Imprime_Produto();
+
+p2.Status_Estoque();
+Produto.Altera_Limite(15);
+p1.Status_Estoque();
+p2.Status_Estoque();
+Produto.Altera_Limite(Entrada_Valor_Limite());
+p1.Status_Estoque();
+p2.Status_Estoque();
+}
+public static int Entrada_Valor_Limite() {
+Scanner input = new Scanner( System.in );
+System.out.print("Entre com o novo valor para o Limite de
+
+Estoque: ");
+int novo_limite = input.nextInt();
+input.close();
+if (novo_limite <=0 )
+return -1;
+else
+return novo_limite;
+}
+}
